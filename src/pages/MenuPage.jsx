@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MENU, CATEGORIES } from "../components/data/siteData";
+import { MENU, CATEGORIES } from "../data/siteData";
 import MenuItem from "../components/MenuItem";
 import Pagination from "../components/Pagination";
 
@@ -47,17 +47,7 @@ function MenuPage() {
 
         <ul className="menu-list">
           {items.map((d) => (
-            <li key={d.id} className="menu-item-entry">
-              {d.image && (
-                <img
-                  className="menu-item-image"
-                  src={d.image}
-                  alt={d.name || "Menu item"}
-                  loading="lazy"
-                />
-              )}
-              <MenuItem dish={d} />
-            </li>
+            <MenuItem key={d.id} dish={d} />
           ))}
         </ul>
 

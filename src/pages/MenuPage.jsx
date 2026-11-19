@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MENU, CATEGORIES } from "../components/data/siteData";
+import { MENU, CATEGORIES } from "../data/siteData";
 import MenuItem from "../components/MenuItem";
 import Pagination from "../components/Pagination";
 
@@ -45,7 +45,7 @@ function MenuPage() {
           ))}
         </div>
 
-        <ul className="menu-list">
+        <ul className="dish-grid">
           {items.map((d) => (
             <MenuItem key={d.id} dish={d} />
           ))}

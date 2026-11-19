@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { NAME, LINKS } from "../components/data/siteData";
+import { NAME, LINKS } from "../data/siteData";
 import { useCart } from "../context/CartContext";
 import ThemeToggle from "./ThemeToggle";
 
@@ -19,9 +19,8 @@ function Navbar() {
             {l.label}
           </Link>
         ))}
-        <Link to="/cart" className="cart-link" onClick={close}>
-          Cart
-          {count > 0 && <span className="badge" aria-label={`${count} items in cart`}>{count}</span>}
+        <Link to="/cart" className="cart-pill" onClick={close} aria-label={`Cart, ${count} items`}>
+          Cart <span className="cart-count">{count}</span>
         </Link>
       </nav>
 

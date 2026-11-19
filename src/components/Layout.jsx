@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import MobileTabBar from "./MobileTabBar";
 
 // Scrolls to #section links, or to the top when the page changes
 function ScrollManager() {
@@ -30,6 +31,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <MobileTabBar />
     </>
   );
 }

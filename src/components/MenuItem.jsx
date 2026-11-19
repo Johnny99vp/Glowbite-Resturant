@@ -7,13 +7,13 @@ function MenuItem({ dish }) {
 
   return (
     <li className="dish">
-      {dish.image && (
+      
         <img
           src={dish.image}
           alt={dish.name}
           onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
-      )}
+      
       <div className="dish-info">
         <h3>{dish.name}</h3>
         <p>{dish.desc}</p>

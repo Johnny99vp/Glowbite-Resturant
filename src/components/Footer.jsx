@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NAME } from "../data/siteData";
+import { NAME } from "../components/data/siteData";
 
 function Footer() {
   return (

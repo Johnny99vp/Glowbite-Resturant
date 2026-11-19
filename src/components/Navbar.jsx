@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { NAME, LINKS } from "../data/siteData";
+import { NAME, LINKS } from "../components/data/siteData";
 import { useCart } from "../context/CartContext";
 import ThemeToggle from "./ThemeToggle";
 

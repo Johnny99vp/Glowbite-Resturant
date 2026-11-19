@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MENU } from "../data/siteData";
+import { MENU } from "../components/data/siteData";
 import FoodImage from "./FoodImage";
 
 function MenuTiles() {

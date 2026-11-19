@@ -1,4 +1,4 @@
-import { TAGS } from "../data/siteData";
+import { TAGS } from "../components/data/siteData";
 
 function TagStrip() {
   const row = [...TAGS, ...TAGS]; // doubled so the loop is seamless

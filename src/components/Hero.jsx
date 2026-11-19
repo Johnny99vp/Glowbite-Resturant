@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { HERO_SLIDES } from "../data/siteData";
+import { HERO_SLIDES } from "../components/data/siteData";
 import FoodImage from "./FoodImage";
 
 function Hero() {

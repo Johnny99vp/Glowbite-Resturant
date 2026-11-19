@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import TagStrip from "../components/TagStrip";
 import DealBand from "../components/DealBand";
 import MenuTiles from "../components/MenuTiles";
-import CallToActions from "../components/CallToActions";
+import CallToActions from "../components/CallToAction";
 import About from "../components/About";
 import Reservation from "../components/Reservation";
 import Contact from "../components/Contact";

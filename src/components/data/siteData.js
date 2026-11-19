@@ -21,7 +21,7 @@ export const MENU = [
   { id: 9, name: "Fried Rice & Turkey", category: "Mains", price: 3800, image: "/images/fried-rice.jpg", desc: "Veggie fried rice with seasoned turkey." },
   { id: 10, name: "Amala & Ewedu", category: "Mains", price: 3600, image: "/images/amala.jpg", desc: "Yam-flour swallow with ewedu and gbegiri." },
   { id: 11, name: "Efo Riro & Eba", category: "Mains", price: 3700, image: "/images/efo-riro.jpg", desc: "Rich spinach stew with assorted meat." },
-  { id: 12, name: "Chapman", category: "Drinks", price: 1500, image: "/images/chapman.jpg", desc: "Fanta, Sprite, grenadine, bitters, citrus." },
+  { id: 12, name: "Chapman", category: "Drinks", price: 1500, image: "/images/zobo-chapman.jpg", desc: "Fanta, Sprite, grenadine, bitters, citrus." },
   { id: 13, name: "Zobo", category: "Drinks", price: 1000, image: "/images/zobo.jpg", desc: "Chilled hibiscus with ginger and pineapple." },
   { id: 14, name: "Palm Wine", category: "Drinks", price: 1800, image: "/images/palm-wine.jpg", desc: "Fresh tapped, served cold." },
   { id: 15, name: "Kunu", category: "Drinks", price: 900, image: "/images/kunu.jpg", desc: "Millet drink, lightly sweet and spiced." },

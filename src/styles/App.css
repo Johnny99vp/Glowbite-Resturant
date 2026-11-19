@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Karla:wght@400;500;700&display=swap");
+
+:root {
+    --ink: #12201b;
+    --green: #1f4d3a;
+    --pepper: #d2381c;
+    --leaf: #eaf0e6;
+    --line: #d5ddd0;
+    --white: #ffffff;
+    --head: "Bricolage Grotesque", system-ui, sans-serif;
+    --body: "Karla", system-ui, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+}
+
+body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--head);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--green);
+}
+
+p {
+    max-width: 62ch;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--pepper);
+    outline-offset: 2px;
+}
+
+.section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.4rem;
+    border-radius: 6px;
+    border: 2px solid var(--pepper);
+    background: var(--pepper);
+    color: var(--white);
+    font: 700 1rem var(--body);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-ghost.dark {
+    color: var(--green);
+    border-color: var(--green);
+    margin-top: 1rem;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font: 800 1.35rem var(--head);
+    color: var(--green);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--pepper);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--ink);
+}
+
+/* Hero */
+.hero {
+    background: var(--green);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem max(1.5rem, calc((100vw - 1000px) / 2));
+}
+
+.hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    margin-bottom: 1.75rem;
+    opacity: 0.92;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.hero-card {
+    background: var(--white);
+    color: var(--ink);
+    padding: 1.75rem;
+    border-radius: 10px;
+}
+
+.hero-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-card .hours {
+    font: 700 1.3rem var(--head);
+    color: var(--pepper);
+    margin-bottom: 0.75rem;
+}
+
+/* Menu */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--green);
+    background: var(--white);
+    color: var(--green);
+    font: 700 0.95rem var(--body);
+    cursor: pointer;
+}
+
+.tab.active {
+    background: var(--green);
+    color: var(--white);
+}
+
+.menu-list {
+    list-style: none;
+    border-top: 1px solid var(--line);
+}
+
+.dish {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.dish h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+}
+
+.dish p {
+    font-size: 0.95rem;
+    color: #4a5a53;
+}
+
+.price {
+    font: 700 1.1rem var(--head);
+    color: var(--pepper);
+    white-space: nowrap;
+}
+
+/* About */
+.about {
+    background: var(--leaf);
+    max-width: none;
+    padding-left: max(1.5rem, calc((100vw - 1000px) / 2));
+    padding-right: max(1.5rem, calc((100vw - 1000px) / 2));
+}
+
+/* Form */
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 640px;
+}
+
+.form label {
+    display: grid;
+    gap: 0.3rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.form input {
+    padding: 0.7rem;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    font: 400 1rem var(--body);
+}
+
+.form .btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+}
+
+.success {
+    background: var(--leaf);
+    color: var(--green);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Contact */
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.contact iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 1rem;
+        background: var(--white);
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero,
+    .contact,
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 3.5rem 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

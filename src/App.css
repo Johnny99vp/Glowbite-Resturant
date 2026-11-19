@@ -245,8 +245,13 @@ input:focus-visible {
 
 /* ---------- Hero ---------- */
 .hero {
-  background: var(--hero-bg);
-  color: #fff;
+  background-color: var(--hero-bg);
+  background-image:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(214, 40, 40, 0.78) 72%, rgba(214, 40, 40, 0.9) 100%),
+    url("/public/images/Arktura-SoundStar-Los-Angeles-CA_WEB_1-scaled.jpg");
+  background-position: center;
+  background-size: cover;
+  color: var(--heading);
   overflow: hidden;
 }
 
@@ -301,13 +306,13 @@ input:focus-visible {
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(29, 20, 20, 0.3);
   cursor: pointer;
 }
 
 .dots button.active {
   width: 1.8rem;
-  background: #fff;
+  background: var(--brand);
 }
 
 @keyframes rise {

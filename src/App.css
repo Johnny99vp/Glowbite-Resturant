@@ -14,13 +14,14 @@
   --line: #eadcd8;
   --hero-bg: #d62828;
   --footer-bg: #1a0f0e;
+  --headheading: black;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
   --bg: #130d0c;
   --surface: #1d1413;
-  --text: #0a0909;
+  --text: #f5ecea;
   --muted: #bfaeaa;
   --heading: #f5ecea;
   --accent-text: #ff6b63;
@@ -28,6 +29,7 @@
   --line: #3a2c29;
   --hero-bg: #8e1b1b;
   --footer-bg: #0b0605;
+  --headheading: black;
 }
 
 :root {
@@ -251,7 +253,7 @@ input:focus-visible {
     url("/public/images/Arktura-SoundStar-Los-Angeles-CA_WEB_1-scaled.jpg");
   background-position: center;
   background-size: cover;
-  color: var(--heading);
+  color: var(--headheading);
   overflow: hidden;
 }
 

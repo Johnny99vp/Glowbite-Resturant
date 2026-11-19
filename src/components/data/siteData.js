@@ -29,7 +29,7 @@ export const MENU = [
 ];
 
 // Your WhatsApp number in international format, no + or spaces
-export const WHATSAPP = "2348000000000";
+export const WHATSAPP = "2348065441123";
 
 // Dishes that rotate in the home page hero (images go in public/images/)
 export const HERO_SLIDES = [

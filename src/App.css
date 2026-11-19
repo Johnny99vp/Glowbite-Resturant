@@ -14,7 +14,8 @@
   --line: #eadcd8;
   --hero-bg: #d62828;
   --footer-bg: #1a0f0e;
-  --headheading: black;
+  --headtran: linear-gradient(105deg, #000 0%, rgba(214, 40, 40, 0.9) 100%);
+  
 }
 
 [data-theme="dark"] {
@@ -29,7 +30,7 @@
   --line: #3a2c29;
   --hero-bg: #8e1b1b;
   --footer-bg: #0b0605;
-  --headheading: black;
+  --headtran: linear-gradient(105deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(214, 40, 40, 0.78) 72%, rgba(214, 40, 40, 0.9) 100%);
 }
 
 :root {
@@ -249,11 +250,11 @@ input:focus-visible {
 .hero {
   background-color: var(--hero-bg);
   background-image:
-    linear-gradient(105deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(214, 40, 40, 0.78) 72%, rgba(214, 40, 40, 0.9) 100%),
+    var(--headtran),
     url("/public/images/Arktura-SoundStar-Los-Angeles-CA_WEB_1-scaled.jpg");
   background-position: center;
   background-size: cover;
-  color: var(--headheading);
+  color: var(--heading);
   overflow: hidden;
 }
 

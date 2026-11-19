@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MENU, CATEGORIES } from "../data/siteData";
+import { MENU, CATEGORIES } from "../components/data/siteData";
 import MenuItem from "../components/MenuItem";
 import Pagination from "../components/Pagination";
 

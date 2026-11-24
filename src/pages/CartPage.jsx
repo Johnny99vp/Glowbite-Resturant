@@ -1,14 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 import { naira } from "../utils/format";
 import { NAME, WHATSAPP } from "../components/data/siteData";
+import FoodImage from "../components/FoodImage";
+import PageIntro from "../components/ui/PageIntro";
+import Section from "../components/ui/Section";
+import SectionTitle from "../components/ui/SectionTitle";
+import Input from "../components/ui/Input";
+import Button from "../components/ui/Button";
+import Price from "../components/ui/Price";
+import QuantityControl from "../components/ui/QuantityControl";
 
 const EMPTY = { name: "", phone: "", address: "" };
+const textBtn = "cursor-pointer text-sm font-bold text-accent underline";
 
 function CartPage() {
   const { items, total, increase, decrease, remove, clear } = useCart();
-  const [form, setForm] = useState(EMPTY);
+  const { user } = useAuth();
+  const [form, setForm] = useState({ ...EMPTY, name: user?.name ?? "" });
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -32,71 +42,56 @@ function CartPage() {
 
   return (
     <>
-      <div className="page-intro">
-        <h1>Your Cart</h1>
-        <p>Review your order, then send it to us on WhatsApp.</p>
-      </div>
+      <PageIntro title="Your Cart" subtitle="Review your order, then send it to us on WhatsApp." />
 
-      <section className="section">
+      <Section>
         {items.length === 0 ? (
-          <div className="empty-cart">
-            <p>Your cart is empty.</p>
-            <Link to="/menu" className="btn">Browse the menu</Link>
+          <div className="py-8 text-center">
+            <p className="mb-5">Your cart is empty.</p>
+            <Button to="/menu">Browse the menu</Button>
           </div>
         ) : (
           <>
-          
-            <ul className="menu-list">
+            <ul className="border-t border-line">
               {items.map((i) => (
-                <li key={i.id} className="cart-row">
-                  {i.image && (
-                    <img
-                      src={i.image}
-                      alt={i.name}
-                      onError={(e) => { e.currentTarget.style.display = "none"; }}
-                    />
-                  )}
-                  <div className="dish-info">
-                    <h3>{i.name}</h3>
-                    <p>{naira(i.price)} each</p>
+                <li key={i.id} className="flex flex-wrap items-center gap-4 border-b border-line py-4">
+                  <FoodImage src={i.image} alt={i.name} className="size-16 shrink-0 rounded-[10px] object-cover" />
+                  <div className="flex-1">
+                    <h3 className="text-lg">{i.name}</h3>
+                    <p className="text-sm text-muted">{naira(i.price)} each</p>
                   </div>
-                  <div className="qty">
-                    <button onClick={() => decrease(i.id)} aria-label={`Remove one ${i.name}`}>−</button>
-                    <span>{i.qty}</span>
-                    <button onClick={() => increase(i.id)} aria-label={`Add one ${i.name}`}>+</button>
-                  </div>
-                  <span className="price">{naira(i.price * i.qty)}</span>
-                  <button className="link-btn" onClick={() => remove(i.id)} aria-label={`Remove ${i.name} from cart`}>
+                  <QuantityControl
+                    label={i.name}
+                    value={i.qty}
+                    onIncrease={() => increase(i.id)}
+                    onDecrease={() => decrease(i.id)}
+                  />
+                  <Price value={i.price * i.qty} />
+                  <button className={textBtn} onClick={() => remove(i.id)} aria-label={`Remove ${i.name} from cart`}>
                     Remove
                   </button>
                 </li>
               ))}
             </ul>
 
-            <div className="cart-summary">
+            <div className="mb-10 mt-6 flex justify-between font-head text-2xl font-extrabold">
               <span>Total</span>
               <span>{naira(total)}</span>
             </div>
-            <button className="link-btn clear" onClick={clear}>Clear cart</button>
+            <button className={`${textBtn} mt-6 block`} onClick={clear}>Clear cart</button>
 
-            <h2>Delivery details</h2>
-            <form className="form" onSubmit={onSubmit}>
-              <label>Full name
-                <input name="name" value={form.name} onChange={onChange} required />
-              </label>
-              <label>Phone number
-                <input name="phone" type="tel" value={form.phone} onChange={onChange} required />
-              </label>
-              <label className="full">Delivery address
-                <input name="address" value={form.address} onChange={onChange} required />
-              </label>
-              <button type="submit" className="btn">Order on WhatsApp</button>
+            <SectionTitle>Delivery details</SectionTitle>
+            <form onSubmit={onSubmit} className="grid max-w-[640px] gap-4 sm:grid-cols-2">
+              <Input label="Full name" name="name" value={form.name} onChange={onChange} required />
+              <Input label="Phone number" name="phone" type="tel" value={form.phone} onChange={onChange} required />
+              <Input label="Delivery address" name="address" className="sm:col-span-2" value={form.address} onChange={onChange} required />
+              <Button type="submit" className="justify-self-start sm:col-span-2">Order on WhatsApp</Button>
             </form>
 
             
           </>
         )}
-      </section>
+      </Section>
     </>
   );
 }

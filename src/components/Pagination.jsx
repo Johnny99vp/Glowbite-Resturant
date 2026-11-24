@@ -1,25 +1,28 @@
+import Chip from "./ui/Chip";
+
 function Pagination({ page, totalPages, onChange }) {
   if (totalPages <= 1) return null;
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <nav className="pagination" aria-label="Menu pages">
-      <button onClick={() => onChange(page - 1)} disabled={page === 1} aria-label="Previous page">
+    <nav aria-label="Menu pages" className="mt-10 flex justify-center gap-1.5">
+      <Chip className="min-w-10 px-2" onClick={() => onChange(page - 1)} disabled={page === 1} aria-label="Previous page">
         ‹
-      </button>
+      </Chip>
       {pages.map((n) => (
-        <button
+        <Chip
           key={n}
-          className={n === page ? "active" : ""}
+          active={n === page}
           aria-current={n === page ? "page" : undefined}
+          className="min-w-10 px-2"
           onClick={() => onChange(n)}
         >
           {n}
-        </button>
+        </Chip>
       ))}
-      <button onClick={() => onChange(page + 1)} disabled={page === totalPages} aria-label="Next page">
+      <Chip className="min-w-10 px-2" onClick={() => onChange(page + 1)} disabled={page === totalPages} aria-label="Next page">
         ›
-      </button>
+      </Chip>
     </nav>
   );
 }

@@ -2,8 +2,11 @@ import { useState } from "react";
 import { MENU, CATEGORIES } from "../components/data/siteData";
 import MenuItem from "../components/MenuItem";
 import Pagination from "../components/Pagination";
+import PageIntro from "../components/ui/PageIntro";
+import Section from "../components/ui/Section";
+import Chip from "../components/ui/Chip";
 
-const PER_PAGE = 4;
+const PER_PAGE = 8;
 
 function MenuPage() {
   const [category, setCategory] = useState("All");
@@ -25,34 +28,32 @@ function MenuPage() {
 
   return (
     <>
-      <div className="page-intro">
-        <h1>Our Menu</h1>
-        <p>Fresh Nigerian dishes, cooked to order.</p>
-      </div>
+      <PageIntro title="Our Menu" subtitle="Fresh Nigerian dishes, cooked to order." />
 
-      <section className="section">
-        <div className="tabs" role="tablist">
+      <Section>
+        <div className="mb-7 flex flex-wrap gap-2" role="tablist">
           {CATEGORIES.map((c) => (
-            <button
+            <Chip
               key={c}
               role="tab"
               aria-selected={category === c}
-              className={category === c ? "tab active" : "tab"}
+              active={category === c}
+              className="px-5"
               onClick={() => changeCategory(c)}
             >
               {c}
-            </button>
+            </Chip>
           ))}
         </div>
 
-        <ul className="dish-grid">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-[repeat(auto-fill,minmax(210px,1fr))] md:gap-5">
           {items.map((d) => (
             <MenuItem key={d.id} dish={d} />
           ))}
         </ul>
 
         <Pagination page={page} totalPages={totalPages} onChange={changePage} />
-      </section>
+      </Section>
     </>
   );
 }

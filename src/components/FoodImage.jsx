@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-// Shows the photo, or a coloured tile with the first letter if it is missing
+// Shows the photo, or a tinted tile with the first letter if the file is missing.
+// Pass sizing/shape classes through className (they apply to both).
 function FoodImage({ src, alt, className = "" }) {
   const [failedSrc, setFailedSrc] = useState(null);
   const failed = !src || failedSrc === src;
 
   if (failed) {
     return (
-      <div className={`food-fallback ${className}`} role="img" aria-label={alt}>
+      <div
+        role="img"
+        aria-label={alt}
+        className={`grid place-items-center bg-tint font-head text-4xl font-extrabold uppercase text-brand ${className}`}
+      >
         {alt?.[0]}
       </div>
     );

@@ -34,10 +34,10 @@ function ThemeToggle() {
 
   return (
     <button
-      className="theme-toggle"
       onClick={toggle}
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
+      className="size-10 cursor-pointer rounded-full border-[1.5px] border-line bg-surface text-lg leading-none text-ink hover:border-accent"
     >
       {theme === "dark" ? "☀" : "☾"}
     </button>

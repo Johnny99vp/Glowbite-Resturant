@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* Lets you write dark:... utilities too, driven by the data-theme attribute */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Theme colours: these change with the light/dark toggle ---------- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #1d1414;
+  --muted: #6b5d5a;
+  --accent-text: #c41e1e;
+  --tint: #fff1ee;
+  --line: #eadcd8;
+  --hero-bg: #d62828;
+  --footer-bg: #1a0f0e;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #130d0c;
+  --surface: #1d1413;
+  --text: #f5ecea;
+  --muted: #bfaeaa;
+  --accent-text: #ff6b63;
+  --tint: #1d1413;
+  --line: #3a2c29;
+  --hero-bg: #8e1b1b;
+  --footer-bg: #0b0605;
+}
+
+/* ---------- Tailwind design tokens: become classes like bg-brand, text-muted ---------- */
+@theme {
+  --color-brand: #d62828;
+  --color-sun: #ffc21a;
+  --font-head: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Karla", system-ui, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-rise: rise 0.5s ease;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@theme inline {
+  --color-page: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent-text);
+  --color-tint: var(--tint);
+  --color-line: var(--line);
+  --color-hero: var(--hero-bg);
+  --color-footer: var(--footer-bg);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent-text);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
